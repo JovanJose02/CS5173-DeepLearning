@@ -1,4 +1,4 @@
-# CS-5173 HW1: Linear Regression and Neural Network Regression 
+# Linear Regression and Neural Network Regression 
 
 ## Project Overview
 This homework compares a baseline **Linear Regression** model with several **Deep Neural Network (DNN)** architectures for predicting **Cancer Mortality Rates** (`TARGET_deathRate`).  
