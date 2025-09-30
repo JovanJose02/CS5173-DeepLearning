@@ -45,19 +45,7 @@ The following models were tested:
 
 ---
 
-## Step 3: Objective Function
-
-All models were trained using **Categorical Cross-Entropy**:
-
-\[
-CE = - \sum_{i=1}^{C} y_i \log(\hat{y}_i)
-\]
-
-where \( C = 10 \) (digit classes), \( y_i \) is the true label, and \( \hat{y}_i \) is the predicted probability.
-
----
-
-## Step 4: Optimization
+## Step 3: Optimization
 
 - **Optimizer**: Adam (`keras.optimizers.Adam`)  
 - **Reason**: Adam adaptively adjusts the learning rate during training, converges faster, and works well for CNNs.  
@@ -66,29 +54,30 @@ where \( C = 10 \) (digit classes), \( y_i \) is the true label, and \( \hat{y}_
 
 ---
 
-## Step 5: Model Selection
+## Step 4: Model Selection
 
-Models were trained with **learning rates {0.1, 0.01, 0.001}**.  
+Models were trained with **learning rates {0.1, 0.01, 0.001}**. 
+#### Best F1 & AUC of each model shown below:
 
 | Model               | LR     | F1 (Val) | AUC (Val) |
 |----------------------|--------|----------|-----------|
-| Logistic Regression  | N/A    | ~0.88    | ~0.97     |
-| DNN                  | 0.001  | ~0.93    | ~0.98     |
-| ConvNet              | 0.001  | ~0.97    | ~0.99     |
-| VGG-like             | 0.001  | ~0.98    | ~0.995    |
-| ResNet (custom)      | 0.001  | **~0.985** | **~0.996** |
+| Logistic Regression  | N/A    | 0.9209    | 0.9931     |
+| DNN                  | 0.1  | 0.976593    | 0.999498     |
+| ConvNet              | 0.01  | 0.990060    | 0.999895     |
+| VGG-like             | 0.01  | 0.993140    | 0.999899    |
+| ResNet (custom)      | 0.001  | **0.993818** | **0.999952** |
 
 **Best Model**: ResNet with LR=0.001 (highest F1 and AUC).  
 
 ---
 
-## Step 6: Model Performance
+## Step 5: Model Performance
 
 1. **Best Model**:  
    - **Architecture**: ResNet (custom, ResNet18-inspired).  
    - **Learning Rate**: `0.001`.  
-   - **F1**: ~0.985  
-   - **AUC**: ~0.996  
+   - **F1**: 0.993818  
+   - **AUC**: 0.999952  
 
 2. **Training Loss & Accuracy Curves**:  
    Each model’s training history is saved in `plots/`. Example:  
